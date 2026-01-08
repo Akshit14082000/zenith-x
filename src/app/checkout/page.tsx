@@ -99,39 +99,80 @@ export default function CheckoutPage() {
                         </div>
                     </div>
 
-                    {/* Checkout Form */}
                     <div>
-                        <h2 className="text-2xl font-bold mb-8">Payment Details</h2>
-                        <form onSubmit={handlePayment} className="space-y-6">
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm text-white/60 ml-2">First Name</label>
-                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="John" />
+                        <h2 className="text-2xl font-bold mb-8">Checkout Details</h2>
+                        <form onSubmit={handlePayment} className="space-y-8">
+
+                            {/* Shipping Address */}
+                            <div className="space-y-6">
+                                <h3 className="text-xl font-semibold text-white/80 border-b border-white/10 pb-2">1. Shipping Address</h3>
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">First Name</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="John" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">Last Name</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="Doe" />
+                                    </div>
                                 </div>
+
                                 <div className="space-y-2">
-                                    <label className="text-sm text-white/60 ml-2">Last Name</label>
-                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="Doe" />
+                                    <label className="text-sm text-white/60 ml-2">Email Address</label>
+                                    <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="john@example.com" />
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm text-white/60 ml-2">Street Address</label>
+                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="123 Music Lane" />
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">City</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="New York" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">State / Province</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="NY" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">Zip Code</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="10001" />
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="space-y-2">
-                                <label className="text-sm text-white/60 ml-2">Email</label>
-                                <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="john@example.com" />
-                            </div>
+                            {/* Payment Method */}
+                            <div className="space-y-6">
+                                <h3 className="text-xl font-semibold text-white/80 border-b border-white/10 pb-2">2. Payment Method</h3>
 
-                            <div className="space-y-2">
-                                <label className="text-sm text-white/60 ml-2">Card Number</label>
-                                <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="0000 0000 0000 0000" />
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm text-white/60 ml-2">Expiry</label>
-                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="MM/YY" />
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <label className="cursor-pointer border border-white/20 bg-white/10 rounded-xl p-4 flex items-center gap-4 hover:bg-white/20 transition-colors">
+                                        <input type="radio" name="payment" defaultChecked className="w-5 h-5 accent-white" />
+                                        <span className="font-semibold">Credit Card</span>
+                                    </label>
+                                    <label className="cursor-pointer border border-white/10 bg-white/5 rounded-xl p-4 flex items-center gap-4 hover:bg-white/10 transition-colors opacity-50">
+                                        <input type="radio" name="payment" disabled className="w-5 h-5 accent-white" />
+                                        <span className="font-semibold">PayPal (Coming Soon)</span>
+                                    </label>
                                 </div>
+
                                 <div className="space-y-2">
-                                    <label className="text-sm text-white/60 ml-2">CVC</label>
-                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="123" />
+                                    <label className="text-sm text-white/60 ml-2">Card Number</label>
+                                    <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="0000 0000 0000 0000" />
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">Expiry</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="MM/YY" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm text-white/60 ml-2">CVC</label>
+                                        <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 focus:outline-none focus:border-white/40 transition-colors" placeholder="123" />
+                                    </div>
                                 </div>
                             </div>
 

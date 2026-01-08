@@ -6,9 +6,12 @@ import { Minus, Plus, Trash2, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { useState } from "react";
+import CheckoutModal from "@/components/CheckoutModal";
 
 export default function CartPage() {
     const { items, removeFromCart, updateQuantity, total, itemCount } = useCart();
+    const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
     return (
         <main className="min-h-screen bg-black text-white">
@@ -113,7 +116,10 @@ export default function CartPage() {
                                     </div>
                                 </div>
 
-                                <button className="w-full py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center gap-2">
+                                <button
+                                    onClick={() => setIsCheckoutOpen(true)}
+                                    className="w-full py-4 bg-white text-black font-bold rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+                                >
                                     Checkout Now <ArrowRight size={20} />
                                 </button>
                                 <p className="text-center text-xs text-white/30 mt-4">Secure Checkout. Free Returns.</p>
@@ -123,6 +129,7 @@ export default function CartPage() {
                 )}
             </div>
             <Footer />
+            <CheckoutModal isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
         </main>
     );
 }
