@@ -3,6 +3,8 @@ import EarbudScroll from "@/components/EarbudScroll";
 import Features from "@/components/Features";
 import Specs from "@/components/Specs";
 import Footer from "@/components/Footer";
+import SoundLab from "@/components/SoundLab";
+import Testimonials from "@/components/Testimonials";
 import { Battery, Bluetooth, Droplets, Mic } from "lucide-react";
 
 export default function Home() {
@@ -47,7 +49,9 @@ export default function Home() {
       <Navbar />
       <EarbudScroll />
       <Features features={earbudFeatures} />
+      <SoundLab />
       <Specs specs={earbudSpecs} title="Compact Power." />
+      <Testimonials />
       <Footer />
     </main>
   );

@@ -137,9 +137,9 @@ export default function EarbudScroll() {
                         <span className="ml-3 font-light tracking-widest uppercase text-sm">Loading Earbuds</span>
                     </div>
                 )}
-            </div>
 
-            <TextOverlays progress={scrollYProgress} />
+                <TextOverlays progress={scrollYProgress} />
+            </div>
         </div>
     );
 }
@@ -171,7 +171,7 @@ function TextOverlays({ progress }: { progress: MotionValue<number> }) {
     const y4 = useTransform(progress, [0.85, 0.95, 1], [50, 0, 0]);
 
     return (
-        <div className="pointer-events-none fixed inset-0 flex items-center justify-center z-10 w-full h-full">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-10 w-full h-full">
             <div className="absolute text-center max-w-4xl px-6">
                 <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col items-center">
                     <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white mb-4">Zenith Air</h1>

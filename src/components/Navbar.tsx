@@ -57,20 +57,37 @@ export default function Navbar() {
             </button>
 
             {/* Mobile Drawer */}
+            {/* Mobile Drawer */}
             {isOpen && (
-                <div className="absolute top-full left-0 w-full bg-black/95 border-b border-white/10 p-6 flex flex-col gap-4 md:hidden">
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center gap-8 md:hidden"
+                >
+                    <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-white tracking-widest hover:text-white/70 transition-colors">
+                        EARBUDS
+                    </Link>
+                    <Link href="/headphones" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-white tracking-widest hover:text-white/70 transition-colors">
+                        HEADPHONES
+                    </Link>
+                    <Link href="/cart" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-white tracking-widest hover:text-white/70 transition-colors">
+                        CART ({itemCount})
+                    </Link>
+
+                    <div className="w-12 h-px bg-white/20 my-4" />
+
                     {links.map((link) => (
                         <a
                             key={link.name}
                             href={link.href}
                             onClick={() => setIsOpen(false)}
-                            className="text-lg font-medium text-white/80"
+                            className="text-lg font-medium text-white/50 hover:text-white transition-colors"
                         >
                             {link.name}
                         </a>
                     ))}
-
-                </div>
+                </motion.div>
             )}
         </motion.nav>
     );
