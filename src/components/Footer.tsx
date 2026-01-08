@@ -5,6 +5,7 @@ export default function Footer() {
                 <div>
                     <h2 className="text-2xl font-bold tracking-tighter text-white">ZENITH X</h2>
                     <p className="text-sm text-white/40 mt-1">© 2026 Zenith Audio. All rights reserved.</p>
+                    <p className="text-xs text-white/20 mt-4">Designed and Developed by Akshit Sharma</p>
                 </div>
                 <div className="flex gap-6 text-sm text-white/60">
                     <a href="#" className="hover:text-white transition-colors">Instagram</a>
